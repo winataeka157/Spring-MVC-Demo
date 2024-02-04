@@ -30,4 +30,7 @@ public class ParkingLotController {
         .build()));
   }
 
+  //To Do : Create an API to find specific parking lot by its ID (complete with test)
+  //To Do : Create an API to assign a Vehicle to a specific parking lot (complete with test)
+
 }
