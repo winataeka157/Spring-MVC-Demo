@@ -5,9 +5,10 @@ import com.example.bliblispringdemo.repository.ParkingLotRepository;
 import com.example.bliblispringdemo.repository.entity.ParkingLotEntity;
 import org.springframework.stereotype.Repository;
 
+import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import java.util.TreeMap;
 import java.util.UUID;
 
 @Repository
@@ -16,7 +17,7 @@ public class ParkingLotRepositoryImpl implements ParkingLotRepository {
   private final Map<String, ParkingLotEntity> idToParkingLotMap;
 
   public ParkingLotRepositoryImpl() {
-    this.idToParkingLotMap = new TreeMap<>();
+    this.idToParkingLotMap = new LinkedHashMap<>();
   }
 
   @Override
@@ -45,5 +46,12 @@ public class ParkingLotRepositoryImpl implements ParkingLotRepository {
       throw new InvalidParameterException("Invalid ID");
     }
     return idToParkingLotMap.remove(id);
+  }
+
+  @Override
+  public List<ParkingLotEntity> findAll() {
+    return idToParkingLotMap.values()
+      .stream()
+      .toList();
   }
 }
