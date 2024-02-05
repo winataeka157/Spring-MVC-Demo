@@ -1,6 +1,6 @@
 package com.example.bliblispringdemo.controller;
 
-import com.example.bliblispringdemo.base.CommandLocator;
+import com.example.bliblispringdemo.base.CommandExecutor;
 import com.example.bliblispringdemo.controller.model.request.CreateParkingLotWebRequest;
 import com.example.bliblispringdemo.controller.model.response.BaseResponse;
 import com.example.bliblispringdemo.controller.model.response.ParkingLotWebResponse;
@@ -19,18 +19,20 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ParkingLotController {
 
-  private final CommandLocator commandLocator;
+  private final CommandExecutor commandExecutor;
 
   @PostMapping
   public BaseResponse<List<ParkingLotWebResponse>> createParkingLots(
     @RequestBody CreateParkingLotWebRequest createParkingLotWebRequest) {
-    return BaseResponse.ok(commandLocator.getCommand(CreateParkingLotCommand.class)
-      .execute(CreateParkingLotCommandRequest.builder()
-        .count(createParkingLotWebRequest.getCount())
-        .build()));
+    return BaseResponse.ok(
+      commandExecutor.execute(CreateParkingLotCommand.class,
+        CreateParkingLotCommandRequest.builder()
+          .count(createParkingLotWebRequest.getCount())
+          .build())
+    );
   }
+
 
   //To Do : Create an API to find specific parking lot by its ID (complete with test)
   //To Do : Create an API to assign a Vehicle to a specific parking lot (complete with test)
-
 }
