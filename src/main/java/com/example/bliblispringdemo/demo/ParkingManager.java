@@ -1,13 +1,13 @@
 package com.example.bliblispringdemo.demo;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 @Component
+@RequiredArgsConstructor
 public class ParkingManager {
 
-  @Autowired
-  private ParkingLot parkingLot;
+  private final ParkingLot parkingLot;
 
   public void displayInfo() {
     System.out.println("This is the parking manager");
