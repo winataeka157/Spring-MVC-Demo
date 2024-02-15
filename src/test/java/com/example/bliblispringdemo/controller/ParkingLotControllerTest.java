@@ -2,7 +2,7 @@ package com.example.bliblispringdemo.controller;
 
 import com.example.bliblispringdemo.controller.model.request.CreateParkingLotWebRequest;
 import com.example.bliblispringdemo.repository.ParkingLotRepository;
-import com.example.bliblispringdemo.repository.entity.ParkingLotEntity;
+import com.example.bliblispringdemo.entity.ParkingLotEntity;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

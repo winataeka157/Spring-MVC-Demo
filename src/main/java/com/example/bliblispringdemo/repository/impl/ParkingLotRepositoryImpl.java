@@ -2,7 +2,7 @@ package com.example.bliblispringdemo.repository.impl;
 
 import com.example.bliblispringdemo.exception.InvalidParameterException;
 import com.example.bliblispringdemo.repository.ParkingLotRepository;
-import com.example.bliblispringdemo.repository.entity.ParkingLotEntity;
+import com.example.bliblispringdemo.entity.ParkingLotEntity;
 import org.springframework.stereotype.Repository;
 
 import java.util.LinkedHashMap;

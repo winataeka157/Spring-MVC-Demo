@@ -1,7 +1,7 @@
 package com.example.bliblispringdemo.repository;
 
 import com.example.bliblispringdemo.exception.InvalidParameterException;
-import com.example.bliblispringdemo.repository.entity.ParkingLotEntity;
+import com.example.bliblispringdemo.entity.ParkingLotEntity;
 
 import java.util.List;
 

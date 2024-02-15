@@ -3,7 +3,7 @@ package com.example.bliblispringdemo.command;
 import com.example.bliblispringdemo.command.impl.CreateParkingLotCommandImpl;
 import com.example.bliblispringdemo.command.model.CreateParkingLotCommandRequest;
 import com.example.bliblispringdemo.repository.ParkingLotRepository;
-import com.example.bliblispringdemo.repository.entity.ParkingLotEntity;
+import com.example.bliblispringdemo.entity.ParkingLotEntity;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

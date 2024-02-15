@@ -1,4 +1,4 @@
-package com.example.bliblispringdemo.repository.entity;
+package com.example.bliblispringdemo.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
