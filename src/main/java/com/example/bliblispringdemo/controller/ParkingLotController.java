@@ -7,6 +7,7 @@ import com.example.bliblispringdemo.controller.model.response.ParkingLotWebRespo
 import com.example.bliblispringdemo.command.CreateParkingLotCommand;
 import com.example.bliblispringdemo.command.model.CreateParkingLotCommandRequest;
 import lombok.RequiredArgsConstructor;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,7 +24,7 @@ public class ParkingLotController {
 
   @PostMapping
   public BaseResponse<List<ParkingLotWebResponse>> createParkingLots(
-    @RequestBody CreateParkingLotWebRequest createParkingLotWebRequest) {
+    @RequestBody @Validated CreateParkingLotWebRequest createParkingLotWebRequest) {
     return BaseResponse.ok(
       commandExecutor.execute(CreateParkingLotCommand.class,
         CreateParkingLotCommandRequest.builder()
