@@ -13,4 +13,5 @@ public class ParkingManager {
     System.out.println("This is the parking manager");
     parkingLot.displayInfo();
   }
+
 }

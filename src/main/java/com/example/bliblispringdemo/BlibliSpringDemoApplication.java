@@ -1,14 +1,16 @@
 package com.example.bliblispringdemo;
 
 import com.example.bliblispringdemo.demo.ParkingManager;
+import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 
 @SpringBootApplication
+@EnableConfigurationProperties
 public class BlibliSpringDemoApplication {
 
 	public static void main(String[] args) {
-		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(BlibliSpringDemoApplication.class);
+		var context = SpringApplication.run(BlibliSpringDemoApplication.class, args);
 		ParkingManager parkingManager = context.getBean(ParkingManager.class);
 		parkingManager.displayInfo();
 	}
