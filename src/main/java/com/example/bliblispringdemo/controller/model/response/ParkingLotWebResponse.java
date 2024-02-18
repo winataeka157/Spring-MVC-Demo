@@ -15,6 +15,10 @@ public class ParkingLotWebResponse {
   private boolean isOccupied;
   private Vehicle vehicle;
 
+  @Builder
+  @AllArgsConstructor
+  @NoArgsConstructor
+  @Data
   public static class Vehicle {
     private String registrationNumber;
     private String color;

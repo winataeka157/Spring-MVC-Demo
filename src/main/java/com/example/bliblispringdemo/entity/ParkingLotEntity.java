@@ -15,6 +15,10 @@ public class ParkingLotEntity {
   private boolean isOccupied;
   private Vehicle vehicle;
 
+  @Data
+  @AllArgsConstructor
+  @NoArgsConstructor
+  @Builder
   public static class Vehicle {
     private String registrationNumber;
     private String color;
