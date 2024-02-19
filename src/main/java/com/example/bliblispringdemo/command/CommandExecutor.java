@@ -1,4 +1,4 @@
-package com.example.bliblispringdemo.base;
+package com.example.bliblispringdemo.command;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.ApplicationContext;
