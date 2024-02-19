@@ -8,6 +8,5 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 public class ParkingProperties {
 
   private int lotInitialCapacity;
-  private String lotName;
 
 }
