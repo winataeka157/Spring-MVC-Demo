@@ -1,10 +1,10 @@
 package com.example.bliblispringdemo.repository.impl;
 
-import com.example.bliblispringdemo.exception.InvalidParameterException;
 import com.example.bliblispringdemo.property.ParkingProperties;
 import com.example.bliblispringdemo.repository.ParkingLotRepository;
 import com.example.bliblispringdemo.entity.ParkingLotEntity;
 import jakarta.annotation.PostConstruct;
+import jakarta.validation.constraints.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -40,15 +40,7 @@ public class ParkingLotRepositoryImpl implements ParkingLotRepository {
   }
 
   @Override
-  public ParkingLotEntity findById(String id) {
-    return idToParkingLotMap.get(id);
-  }
-
-  @Override
-  public ParkingLotEntity save(ParkingLotEntity parkingLotEntity) {
-    if (Objects.isNull(parkingLotEntity)) {
-      throw new InvalidParameterException("Entity couldn't be null");
-    }
+  public ParkingLotEntity save(@NotNull ParkingLotEntity parkingLotEntity) {
     if (Objects.isNull(parkingLotEntity.getId())) {
       String id = UUID.randomUUID().toString();
       parkingLotEntity.setId(id);
@@ -60,11 +52,15 @@ public class ParkingLotRepositoryImpl implements ParkingLotRepository {
   }
 
   @Override
-  public ParkingLotEntity delete(String id) {
-    if (!idToParkingLotMap.containsKey(id)) {
-      throw new InvalidParameterException("Invalid ID");
-    }
-    return idToParkingLotMap.remove(id);
+  public List<ParkingLotEntity> saveAll(List<ParkingLotEntity> parkingLotEntities) {
+    parkingLotEntities
+      .forEach(parkingLotEntity -> {
+        if (Objects.isNull(parkingLotEntity.getId())) {
+          parkingLotEntity.setId(UUID.randomUUID().toString());
+        }
+        idToParkingLotMap.put(parkingLotEntity.getId(), parkingLotEntity);
+      });
+    return parkingLotEntities;
   }
 
   @Override
@@ -73,4 +69,10 @@ public class ParkingLotRepositoryImpl implements ParkingLotRepository {
       .stream()
       .toList();
   }
+
+  @Override
+  public void deleteAll() {
+     idToParkingLotMap = new LinkedHashMap<>();
+  }
+
 }
