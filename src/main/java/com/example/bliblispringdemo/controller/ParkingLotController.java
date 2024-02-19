@@ -1,6 +1,6 @@
 package com.example.bliblispringdemo.controller;
 
-import com.example.bliblispringdemo.command.CommandExecutor;
+import com.example.bliblispringdemo.command.executor.CommandExecutor;
 import com.example.bliblispringdemo.command.GetAllParkingLotCommand;
 import com.example.bliblispringdemo.command.model.GetAllParkingLotCommandRequest;
 import com.example.bliblispringdemo.controller.model.request.CreateParkingLotWebRequest;
