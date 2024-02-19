@@ -2,6 +2,7 @@ package com.example.bliblispringdemo.controller;
 
 import com.example.bliblispringdemo.controller.model.response.BaseErrorResponse;
 import org.springframework.http.HttpStatus;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -28,7 +29,9 @@ public class ErrorController {
     return exception.getBindingResult()
       .getFieldErrors()
       .stream()
-      .map(e -> Map.entry(e.getField(), List.of(e.getDefaultMessage())))
-      .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+      .collect(Collectors.groupingBy(
+        FieldError::getField,
+        Collectors.mapping(FieldError::getDefaultMessage, Collectors.toList())
+      ));
   }
 }

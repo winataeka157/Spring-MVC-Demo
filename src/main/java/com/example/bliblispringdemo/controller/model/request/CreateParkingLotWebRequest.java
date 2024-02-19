@@ -1,6 +1,7 @@
 package com.example.bliblispringdemo.controller.model.request;
 
 import com.example.bliblispringdemo.validator.annotation.ValidParkingCount;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -13,6 +14,7 @@ import lombok.NoArgsConstructor;
 public class CreateParkingLotWebRequest {
 
   @ValidParkingCount
-  private int count;
+  @NotNull
+  private Integer count;
 
 }
