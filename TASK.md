@@ -11,7 +11,7 @@ Condition :
 
 2. Create an API to park a Vehicle to a specific parking lot
 Request Method : PUT
-Request Path: `/parking-lots/{id}/assign-vehicle`
+Request Path: `/parking-lots/{id}/vehicle`
 Request Body : Vehicle with registrationNumber and color
 Condition : 
    - Return 200 :
