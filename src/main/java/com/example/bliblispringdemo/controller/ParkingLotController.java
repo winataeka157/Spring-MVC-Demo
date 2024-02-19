@@ -53,6 +53,8 @@ public class ParkingLotController {
   }
 
 
-  //To Do : Create an API to find specific parking lot by its ID (complete with test)
-  //To Do : Create an API to assign a Vehicle to a specific parking lot (complete with test)
+  //To Do : Create an API to find specific parking lot by its ID
+  //To Do : Create an API to park a Vehicle to a specific parking lot
+  //To Do : Create an API to find a Vehicle with a specific registration number and its parking lot ID
+  //To Do : Create an API to un-park a Vehicle by its registration number
 }
