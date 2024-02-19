@@ -14,7 +14,7 @@ import java.lang.annotation.Target;
 @Constraint(validatedBy = ValidParkingCountValidator.class)
 public @interface ValidParkingCount {
 
-  String message() default "com.gdn.seo.backend.validation.annotation.MaxTextLength.message";
+  String message() default "Invalid Parking Count";
 
   Class<?>[] groups() default {};
 
