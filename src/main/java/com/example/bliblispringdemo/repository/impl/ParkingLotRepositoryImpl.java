@@ -1,8 +1,11 @@
 package com.example.bliblispringdemo.repository.impl;
 
 import com.example.bliblispringdemo.exception.InvalidParameterException;
+import com.example.bliblispringdemo.property.ParkingProperties;
 import com.example.bliblispringdemo.repository.ParkingLotRepository;
 import com.example.bliblispringdemo.entity.ParkingLotEntity;
+import jakarta.annotation.PostConstruct;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.LinkedHashMap;
@@ -10,14 +13,30 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.UUID;
+import java.util.stream.IntStream;
 
 @Repository
 public class ParkingLotRepositoryImpl implements ParkingLotRepository {
 
-  private final Map<String, ParkingLotEntity> idToParkingLotMap;
+  private Map<String, ParkingLotEntity> idToParkingLotMap;
+  private final ParkingProperties parkingProperties;
 
-  public ParkingLotRepositoryImpl() {
-    this.idToParkingLotMap = new LinkedHashMap<>();
+  @Autowired
+  public ParkingLotRepositoryImpl(ParkingProperties parkingProperties) {
+    this.parkingProperties = parkingProperties;
+  }
+
+  @PostConstruct
+  public void initialize() {
+    idToParkingLotMap = new LinkedHashMap<>();
+    IntStream.range(0, parkingProperties.getLotInitialCapacity())
+      .forEach(index -> {
+        String id = UUID.randomUUID().toString();
+        idToParkingLotMap.put(id, ParkingLotEntity.builder()
+          .isOccupied(false)
+          .id(id)
+          .build());
+      });
   }
 
   @Override
