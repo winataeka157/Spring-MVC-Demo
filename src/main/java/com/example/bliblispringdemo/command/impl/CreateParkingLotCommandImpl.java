@@ -3,7 +3,7 @@ package com.example.bliblispringdemo.command.impl;
 import com.example.bliblispringdemo.command.model.CreateParkingLotCommandRequest;
 import com.example.bliblispringdemo.controller.model.response.ParkingLotWebResponse;
 import com.example.bliblispringdemo.repository.ParkingLotRepository;
-import com.example.bliblispringdemo.repository.entity.ParkingLotEntity;
+import com.example.bliblispringdemo.entity.ParkingLotEntity;
 import com.example.bliblispringdemo.command.CreateParkingLotCommand;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

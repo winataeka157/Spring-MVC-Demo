@@ -1,4 +1,4 @@
-package com.example.bliblispringdemo.base;
+package com.example.bliblispringdemo.command;
 
 public interface Command<R, T> {
 

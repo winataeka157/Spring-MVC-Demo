@@ -7,7 +7,6 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @ConfigurationProperties(prefix = "parking")
 public class ParkingProperties {
 
-  private String lotCapacity;
-  private String lotName;
+  private int lotInitialCapacity;
 
 }

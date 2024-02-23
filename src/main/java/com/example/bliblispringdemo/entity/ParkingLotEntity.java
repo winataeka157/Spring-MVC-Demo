@@ -1,4 +1,4 @@
-package com.example.bliblispringdemo.repository.entity;
+package com.example.bliblispringdemo.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -15,6 +15,10 @@ public class ParkingLotEntity {
   private boolean isOccupied;
   private Vehicle vehicle;
 
+  @Data
+  @AllArgsConstructor
+  @NoArgsConstructor
+  @Builder
   public static class Vehicle {
     private String registrationNumber;
     private String color;

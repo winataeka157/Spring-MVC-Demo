@@ -1,5 +1,6 @@
-package com.example.bliblispringdemo.base;
+package com.example.bliblispringdemo.command.executor;
 
+import com.example.bliblispringdemo.command.Command;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
